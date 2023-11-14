@@ -1,5 +1,5 @@
 {% set name = "nrel.routee.compass" %}
-{% set version = "0.2.1" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: bb4ab95f7a240d43d1883f4277b40e005a011bccda47487a9f80aa06f09694c1
+  sha256: a087aa6d180010096576fc42c621c54de3d16a5738e7469eb4c5762918e2be74
 
 build:
   number: 1
   skip: true  # [py<39 or python_impl == 'pypy']
-  script: 
+  script:
     - {{ PYTHON }} -m pip install . -vv
     - cd rust
     - cargo-bundle-licenses --format yaml --output ../THIRDPARTY.yml
@@ -32,27 +32,25 @@ requirements:
   run:
     - python
     - osmnx
-    - gdal
-    - rasterio
     - toml
-  
+
 test:
   imports:
-    - nrel.routee.compass 
+    - nrel.routee.compass
   commands:
     - pip check
   requires:
     - pip
-  
+
 about:
-  home: https://nrel.github.io/routee-compass/ 
-  license: BSD-3-Clause 
-  license_family: BSD 
-  license_file: 
+  home: https://nrel.github.io/routee-compass/
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file:
     - LICENSE.txt
     - THIRDPARTY.yml
-  summary: The RouteE-Compass energy-aware routing engine.  
-  description:  |
+  summary: The RouteE-Compass energy-aware routing engine.
+  description: |
     RouteE Compass is an energy-aware routing engine for the RouteE ecosystem of software tools. 
     It supports dynamic and extensible search objectives that allow customized blends of distance, 
     time, cost, and energy (via RouteE Powertrain) at query-time. The core engine is written in 
@@ -61,4 +59,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - nreinicke 
+    - nreinicke
