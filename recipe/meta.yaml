@@ -32,8 +32,6 @@ requirements:
   run:
     - python
     - osmnx
-    - gdal
-    - rasterio
     - toml
 
 test:
