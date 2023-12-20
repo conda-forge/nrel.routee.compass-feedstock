@@ -23,13 +23,13 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}                    # [unix]
     - {{ compiler('cxx') }}                  # [onnxruntime]
-    - libcxx                                 # [onnxruntime]
     - rust
     - cargo-bundle-licenses
   host:
     - pip
     - maturin
     - python
+    - libcxx                                 # [onnxruntime]
   run:
     - python
     - osmnx
