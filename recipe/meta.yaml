@@ -17,8 +17,8 @@ build:
     - cd rust
     - cargo-bundle-licenses --format yaml --output ../THIRDPARTY.yml
   missing_dso_whitelist:
-    - "libstdc++*"
-    - "api-ms-win-core-path-l1-1-0*"
+    - "$RPATH/libstdc++.so.6"   #[onnxruntime linux static dep]
+    - "$RPATH/api-ms-win-core-path-l1-1-0.dll"    #[onnxruntime win static dep]
 
 requirements:
   build:
