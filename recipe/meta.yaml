@@ -29,11 +29,11 @@ requirements:
     - pip
     - maturin
     - python
-    - libcxx                                 # [onnxruntime]
   run:
     - python
     - osmnx
     - toml
+    - libcxx                                 # [onnxruntime]
 
 test:
   imports:
