@@ -17,7 +17,7 @@ build:
     - cd rust
     - cargo-bundle-licenses --format yaml --output ../THIRDPARTY.yml
   missing_dso_whitelist:
-    - "$RPATH/api-ms-win-core-path-l1-1-0.dll"
+    - '**/api-ms-win-core-path-l1-1-0.dll'  # [win]
 
 requirements:
   build:
