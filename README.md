@@ -247,4 +247,5 @@ Feedstock Maintainers
 =====================
 
 * [@nreinicke](https://github.com/nreinicke/)
+* [@robfitzgerald](https://github.com/robfitzgerald/)
 
