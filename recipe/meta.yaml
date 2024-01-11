@@ -1,5 +1,5 @@
 {% set name = "nrel.routee.compass" %}
-{% set version = "0.5.0" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: d325501fc1b39f5117eeb5005edd574cfb81690aaafaba3947c6fa1b64c2ca42
+  sha256: 4ed2afca4c08f16b3a4731ecf3c8b74a3150a67179a7f40f00c67b4abd68282e
 
 build:
   number: 0
