@@ -26,7 +26,7 @@ requirements:
     - {{ compiler('c') }}                    # [unix]
     - {{ compiler('cxx') }}                  # [unix]
     - {{ compiler('m2w64_c') }}              # [win]
-    - rust
+    - {{ compiler('rust')}}
     - cargo-bundle-licenses
   host:
     - pip
