@@ -1,5 +1,5 @@
 {% set name = "nrel.routee.compass" %}
-{% set version = "0.5.0" %}
+{% set version = "0.6.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: d325501fc1b39f5117eeb5005edd574cfb81690aaafaba3947c6fa1b64c2ca42
+  sha256: dda23f594b8af354b515d86e19ff07e61a218f901fadf5cff5d5ca89320a9ac0
 
 build:
   number: 0
@@ -23,10 +23,8 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - {{ compiler('c') }}                    # [unix]
-    - {{ compiler('cxx') }}                  # [unix]
-    - {{ compiler('m2w64_c') }}              # [win]
-    - rust
+    - {{ compiler('c') }}                    
+    - {{ compiler('rust') }}                    
     - cargo-bundle-licenses
   host:
     - pip
