@@ -1,9 +1,9 @@
+c_compiler:
+- vs2019
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
-m2w64_c_compiler:
-- m2w64-toolchain
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -12,6 +12,8 @@ python:
 - 3.9.* *_cpython
 python_impl:
 - cpython
+rust_compiler:
+- rust
 target_platform:
 - win-64
 zip_keys:

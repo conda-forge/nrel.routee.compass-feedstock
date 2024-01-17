@@ -16,8 +16,8 @@ build:
     - {{ PYTHON }} -m pip install . -vv
     - cd rust
     - cargo-bundle-licenses --format yaml --output ../THIRDPARTY.yml
-  # missing_dso_whitelist:
-  #   - '**/api-ms-win-core-path-l1-1-0.dll'  # [win]
+  missing_dso_whitelist:
+    - '**/api-ms-win-core-path-l1-1-0.dll'  # [win]
 
 requirements:
   build:
