@@ -1,9 +1,13 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '10.12'
+- '10.9'
 c_compiler:
 - clang
 c_compiler_version:
 - '16'
+c_stdlib:
+- macosx_deployment_target
+c_stdlib_version:
+- '10.9'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -25,7 +29,3 @@ target_platform:
 zip_keys:
 - - python
   - python_impl
-
-CONDA_BUILD_SYSROOT:
-- /var/folders/nn/7wz02d9945sc16d9bd1c2fq8pmzlw0/T/tmp.iwafSCt0/MacOSX10.12.sdk
-
