@@ -10,7 +10,7 @@ source:
   sha256: 6be84203f3b1adb1659756196fe0205e8e6ff48043d8c91a7556930413d933f9
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<39 or python_impl == 'pypy']
   script:
     - {{ PYTHON }} -m pip install . -vv
@@ -27,6 +27,7 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
+    - maturin
   host:
     - pip
     - maturin
