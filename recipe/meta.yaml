@@ -35,7 +35,7 @@ requirements:
   run:
     - python
     - osmnx
-    - toml
+    - tomlkit
 
 test:
   imports:
