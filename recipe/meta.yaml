@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<39 or python_impl == 'pypy']
+  skip: true  # [py<310 or python_impl == 'pypy']
   script:
     - {{ PYTHON }} -m pip install . -vv
     - cd rust
