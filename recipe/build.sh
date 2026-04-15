@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-MATURIN_PEP517_ARGS=()
-
 if [[ "$(uname)" == "Linux" ]]; then
     ORT_TAG="v1.24.4"
     ORT_SRC="${SRC_DIR}/_onnxruntime"
@@ -24,10 +22,12 @@ if [[ "$(uname)" == "Linux" ]]; then
     )
 
     export ORT_LIB_PATH="${ORT_SRC}/build/Linux/${ORT_BUILD_CONFIG}"
-    MATURIN_PEP517_ARGS=(--config-settings=build-args='--no-default-features --features ort-static')
-fi
 
-${PYTHON} -m pip install . -vv "${MATURIN_PEP517_ARGS[@]}"
+    ${PYTHON} -m pip install . -vv \
+        --config-settings=build-args='--no-default-features --features ort-static'
+else
+    ${PYTHON} -m pip install . -vv
+fi
 
 cd rust
 cargo-bundle-licenses --format yaml --output ../THIRDPARTY.yml
