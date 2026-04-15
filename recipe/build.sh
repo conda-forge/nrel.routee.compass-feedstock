@@ -19,7 +19,8 @@ if [[ "$(uname)" == "Linux" ]]; then
             --compile_no_warning_as_error \
             --skip_submodule_sync \
             --skip_tests \
-            --allow_running_as_root
+            --allow_running_as_root \
+            --cmake_extra_defines onnxruntime_BUILD_UNIT_TESTS=OFF
     )
 
     export ORT_LIB_PATH="${ORT_SRC}/build/Linux/${ORT_BUILD_CONFIG}"
