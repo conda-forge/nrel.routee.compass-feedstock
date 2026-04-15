@@ -11,8 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<310 or python_impl == 'pypy']
-  skip: true  # [osx and x86_64]
+  skip: true  # [py<310 or python_impl == 'pypy' or (osx and x86_64)]
   script:
     - {{ PYTHON }} -m pip install . -vv
     - cd rust
