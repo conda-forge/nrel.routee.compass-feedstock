@@ -1,5 +1,5 @@
 {% set name = "nrel.routee.compass" %}
-{% set version = "0.18.0" %}
+{% set version = "0.19.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,15 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/nrel_routee_compass-{{ version }}.tar.gz
-  sha256: aba7a0b9ac1483cdf1a19d571dd64c7d2b6a70321b23a506e2003b219335e8d2
+  sha256: ff3b6790dc7e4a7f07a09b86ea4892c365b85dd67e3c66897d9ca73685577c39
 
 build:
   number: 0
-  skip: true  # [py<310 or python_impl == 'pypy']
-  script:
-    - {{ PYTHON }} -m pip install . -vv
-    - cd rust
-    - cargo-bundle-licenses --format yaml --output ../THIRDPARTY.yml
+  skip: true  # [py<310 or python_impl == 'pypy' or (osx and x86_64)]
   missing_dso_whitelist:
     - '**/api-ms-win-core-path-l1-1-0.dll'  # [win]
 
@@ -24,14 +20,20 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
     - maturin
+    - pkg-config  # [linux]
+    - cmake       # [linux]
+    - make        # [linux]
+    - git         # [linux]
   host:
     - pip
     - maturin
     - python
+    - openssl  # [linux]
   run:
     - python
     - osmnx
